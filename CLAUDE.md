@@ -64,10 +64,10 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 - **No phone number anywhere** on the site or in deployed files.
 - **Resume:** use Jackson's web copy `public/assets/JAdamsResumeNoNumber.pdf` (no phone number). Rename it to `assets/resume.pdf`, which the Resume button already links to.
 - **Headshot:** the source is `public/assets/JacksonAdams2025-1.jpg` (portrait, 1996×2909, 1.1 MB). Crop it square around the face and compress it into `assets/headshot.jpg`, which the page already uses.
-- **Hero:** the subtitle is "Computer Engineering Student @ Miami University". The small red intro line above the name is still open; "Hi, I'm" was suggested.
-- **About:** the first sentence is Jackson's, verbatim: "Computer Engineering Student with a passion for entrepreneurship, app development, and hardware." The 4.0 GPA should be included. The draft continuation below is waiting for his approval.
+- **Hero:** the small red intro line above the name is "Hi, I'm". The subtitle is "Computer Engineering Student @ Miami University".
+- **About:** the first sentence is Jackson's, verbatim: "Computer Engineering Student with a passion for entrepreneurship, app development, and hardware." Jackson approved this continuation, which includes the 4.0 GPA:
   > I'm studying computer engineering at Miami University with a minor in Deep Learning and AI, where I hold a 4.0 GPA and was named to the President's List. I like building things that span software and hardware, from Foilio, an app for pricing and tracking a trading card collection, to a simulated pick-and-place cell I programmed in ladder logic. I'm also an undergraduate teaching assistant for Fundamentals of Programming, helping 30 students learn to debug Python.
-- **Skills:** the proposed pills below are waiting for approval. TypeScript and React Native come from Foilio, not the resume.
+- **Skills:** Jackson approved these pills. TypeScript and React Native come from Foilio, not the resume.
   - **Programming Languages:** Python, Java, TypeScript, HTML, CSS
   - **Hardware & Automation:** PLC programming (ladder logic), CODESYS, HMI design, FPGA design, Arduino
   - **Frameworks:** Expo, Expo Router, React Native, PyTorch, Hugging Face Transformers
@@ -82,15 +82,15 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 - **Facts:** built Oct 15–31, 2026 with CODESYS V3.5 SP22 (ladder logic and CODESYS Visualization). He taught himself CODESYS and ladder logic in about two weeks.
 - **Buttons:** none. There's no GitHub repo and no PDF download.
 - **Large media spot:** `assets/plc/hmi-fault.png`, captioned verbatim: "Fault state: the Fault light and banner latch on and the machine stops. (The status bar's RUNNING text stays greyed out; I'll fix that in a later revision.)"
-- **Gallery:** the other five images, shown uncropped, with no placeholder tile. The ladder rungs are very wide (about 7–10:1), so a 16:9 crop would cut them off. Starting captions come from the PDF.
+- **Gallery:** the other five images, shown uncropped, with no placeholder tile. The ladder rungs are very wide (about 7–10:1), so a 16:9 crop would cut them off. Jackson approved rewriting the PDF captions to be more detailed. Use these final captions, each checked against its image:
 
-  | File to create | PDF source | PDF caption |
+  | File to create | PDF source | Caption |
   |---|---|---|
-  | `hmi-running.png` | p3, 2048×1247 | "HMI Screen Mid-Step" |
-  | `rung-seal-in.png` | p4, 1846×276 | "Rung 1: Seal-in Circuit" |
-  | `rung-transition.png` | p4, 1852×226 | "Example of Transition Rung" |
-  | `rung-fault-timer.png` | p5, 1864×190 | "Fault Timer Rung example" |
-  | `state-diagram.jpg` | p5, 1197×1022, hand-drawn photo | "State Diagram showing steps and actions taken in each step." |
+  | `hmi-running.png` | p3, 2048×1247 | Operator HMI mid-cycle: step 10 (Feed) is active, the conveyor output is on, and 12 good parts have been counted. The simulator buttons along the bottom stand in for real sensors. |
+  | `rung-seal-in.png` | p4, 1846×276 | Rung 1, the seal-in run circuit: the xRunning contact in parallel with Start keeps the machine running after Start is released, until Stop is pressed, the E-stop OK signal drops, or a fault latches. |
+  | `rung-transition.png` | p4, 1852×226 | Transition rung from step 10 to step 20: once step 10 is active and the part-present sensor turns on, the rung resets step 10 and sets step 20. |
+  | `rung-fault-timer.png` | p5, 1864×190 | Fault timer rung for step 40: a 2-second TON timer runs while the step is active, and if the step hasn't finished in time it latches the clamp-retract fault. |
+  | `state-diagram.jpg` | p5, 1197×1022, hand-drawn photo | Hand-drawn state diagram: the cycle runs 10 → 20 → 30 → 40 and back to 10. A timeout in steps 20, 30 or 40 moves the machine to Faulted, and Reset, Stop or E-stop returns it to Stopped. |
 
   The fault screen (`hmi-fault.png`) is p4, 2048×1267. The images extract at full resolution with `pypdf`. Pillow isn't installed, so write the raw JPEG streams directly and wrap the Flate pixel data in a minimal PNG writer.
 - **Overview:** from PDF p2.
@@ -130,15 +130,12 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
   - **Exceptions:** Supabase (Postgres, edge functions, a daily price-snapshot job) is planned, since the repo says "Not yet initialized". Describe it as planned, not built. Colab fine-tuning appears nowhere in the repo, so omit it unless Jackson confirms or adds it.
 - **Buttons:** only "View on GitHub", linking to the repo. There's no live demo, so show an "In development" badge, both on the page and on the home page card. The badge component doesn't exist yet; build it as a variant of the tag pill.
 - **Large media spot:** all four screenshots in a row, with no video placeholder. Copy them from the Foilio repo's `docs/screenshots/` (`portfolio.png`, `search.png`, `card-detail.png`, `scanner.png`, each 390×670 portrait) into `public/assets/foilio/`. They're small, so the lightbox won't enlarge them much.
-- **Gallery:** real images only. Whether to repeat the four screenshots there or leave the gallery out until more exist is undecided.
+- **Gallery:** real images only. For now it repeats the four screenshots (Jackson approved), with lightbox enabled. Add more as they're made.
 - **Disclaimer:** include the README's Pokémon disclaimer, since the screenshots show card art: unofficial fan project, not affiliated with Nintendo, The Pokémon Company, Creatures or Game Freak, and card data and images come from TCGdex.
 
-## Still open (ask Jackson before deciding)
+## Still open
 
-1. The hero intro line.
-2. Approval of the About draft and the skill pills above.
-3. Whether the Foilio gallery repeats the four screenshots.
-4. Captions for the five PLC gallery images: use the PDF captions above, or have Jackson tidy them.
+Nothing as of 2026-11-09. Every content decision for the content pass is recorded above. Ask Jackson about anything new instead of guessing.
 
 ## Verification checklist (run after changes)
 
