@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+.firebase/
+
+# Reference material stays local: this repo is public on GitHub.
+reference/*
+!reference/.gitkeep
+
+# PLC write-up is source material only, never committed or deployed.
+*PLC & HMI Project.pdf
