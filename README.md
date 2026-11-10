@@ -1,6 +1,6 @@
 # JADAMS Builds
 
-The personal portfolio site of Jackson Adams, with a home page covering his background, projects, and skills, plus a detail page for each project. It is built with plain HTML, CSS, and vanilla JavaScript, with no framework, packages, or build step. Everything deployed lives in `public/`, which is set up to be hosted on Firebase Hosting later. Anything still marked `[PLACEHOLDER: ...]` or `#PLACEHOLDER-...` has not been written yet.
+The personal portfolio site of Jackson Adams, with a home page covering his background, projects, and skills, plus a detail page for each project. It is built with plain HTML, CSS, and vanilla JavaScript, with no framework, packages, or build step. Everything deployed lives in `public/`, which is hosted on Firebase Hosting at https://jadams-portfolio.web.app. Anything still marked `[PLACEHOLDER: ...]` or `#PLACEHOLDER-...` has not been written yet.
 
 ## Folder structure
 
@@ -22,7 +22,20 @@ JAdamsBUILDS/
 │       ├── plc/
 │       └── foilio/
 ├── reference/                # inspo screenshots and write-up, never deployed
+├── firebase.json             # hosting config: clean URLs, cache headers
+├── .firebaserc               # default Firebase project (jadams-portfolio)
 ├── .gitignore
 ├── LICENSE
 └── README.md
 ```
+
+## Updating the site
+
+After editing files in `public/`, commit and push your changes, then publish:
+
+```
+git push
+firebase deploy --only hosting
+```
+
+The deploy uploads whatever is in `public/` on your computer, so commit first to keep GitHub and the live site in sync. Demo videos go in as YouTube embeds rather than uploaded files.
