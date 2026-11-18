@@ -3,10 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PLC HMI | JADAMS Builds</title>
-  <meta name="description" content="PLC HMI, a project from the portfolio of Jackson Adams.">
-  <meta name="theme-color" content="#0a0a0a">
+  <title>Simulated Pick-and-Place Cell (PLC &amp; HMI) | Jackson Adams</title>
+  <meta name="description" content="A simulated pick-and-place work cell built in CODESYS: a ladder-logic state machine with fault timeouts, an E-stop, a robot handshake and an operator HMI. By Jackson Adams.">
+  <meta name="theme-color" content="#2a221d">
+  <link rel="canonical" href="https://jadams-portfolio.web.app/projects/plc-hmi">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Jackson Adams">
+  <meta property="og:title" content="Simulated Pick-and-Place Cell (PLC &amp; HMI) | Jackson Adams">
+  <meta property="og:description" content="A ladder-logic state machine in CODESYS with fault timeouts, an E-stop, a robot handshake and an operator HMI.">
+  <meta property="og:url" content="https://jadams-portfolio.web.app/projects/plc-hmi">
+  <meta property="og:image" content="https://jadams-portfolio.web.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Jackson Adams, Computer Engineering Student at Miami University">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -26,7 +39,7 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="wordmark" href="../index.html">JADAMS <span class="wordmark__accent">Builds</span></a>
+      <a class="wordmark" href="../index.html" aria-label="Jackson Adams, home">JA</a>
       <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <svg class="icon menu-toggle__open" aria-hidden="true"><use href="#icon-menu"/></svg>
         <svg class="icon menu-toggle__close" aria-hidden="true"><use href="#icon-close"/></svg>
@@ -43,65 +56,92 @@
 
   <main id="main">
     <div class="container project-intro">
-      <a class="back-link" href="../index.html#projects"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>Back to projects</a>
-      <h1 class="project-intro__title">PLC HMI</h1>
-      <p class="project-intro__summary">[PLACEHOLDER: project summary]</p>
-      <div class="tag-list">
-        <span class="tag">[PLACEHOLDER: tag]</span>
-        <span class="tag">[PLACEHOLDER: tag]</span>
-        <span class="tag">[PLACEHOLDER: tag]</span>
-      </div>
-      <div class="button-row">
-        <a class="btn" href="#PLACEHOLDER-project-repo-url"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a>
-        <a class="btn" href="#PLACEHOLDER-project-link-url"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>[PLACEHOLDER: link label]</a>
-      </div>
+      <a class="back-link" href="../index.html#projects"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>All projects</a>
+      <h1 class="project-intro__title">Simulated Pick-and-Place Cell</h1>
+      <p class="project-intro__summary">A PLC &amp; HMI project: a simulated conveyor, pneumatic clamp and robot, sequenced by a ladder-logic state machine with fault timeouts, an E-stop and an operator HMI.</p>
+      <p class="project-intro__meta">Built Oct 15&ndash;31, 2026 &middot; CODESYS V3.5 SP22 (ladder logic, CODESYS Visualization)</p>
+      <ul class="tag-list" aria-label="Technologies">
+        <li class="tag">CODESYS</li>
+        <li class="tag">Ladder Logic</li>
+        <li class="tag">State Machines</li>
+        <li class="tag">HMI Design</li>
+      </ul>
     </div>
 
     <div class="container">
-      <div class="media-placeholder">Demo video coming soon</div>
+      <figure class="figure">
+        <div class="frame-light">
+          <img src="../assets/plc/hmi-fault.png" alt="Operator HMI during a fault: every step light is off, the red Fault light is on, and a red banner reads FAULT: CLAMP DID NOT CLOSE - check air pressure and sensor." width="2048" height="1267" data-lightbox>
+        </div>
+        <figcaption>Fault state: the Fault light and banner latch on and the machine stops. (The status bar's RUNNING text stays greyed out; I'll fix that in a later revision.)</figcaption>
+      </figure>
+      <!--
+        DEMO VIDEO (optional, add later)
+        1. Save a screen recording of the HMI running a cycle as public/assets/plc/demo.mp4
+           and one frame of it as public/assets/plc/demo-poster.png.
+        2. Paste this figure right here, below the fault screenshot:
+        <figure class="figure">
+          <video src="../assets/plc/demo.mp4" poster="../assets/plc/demo-poster.png" width="1920" height="1080" controls muted playsinline preload="none"></video>
+          <figcaption>One full cycle on the operator HMI, from Start to a counted part.</figcaption>
+        </figure>
+      -->
     </div>
 
     <section class="project-section" id="overview">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">Overview</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: overview]</p></div>
+        <div class="prose">
+          <p>I built a simulated automated work cell in CODESYS. This work cell performs four simple steps: a conveyor feeds a part, a pneumatic clamp holds it, a robot picks it, and the PLC counts each good part. My program contains a few features typical of an automation system, including an operator HMI screen, fault timeouts, and an E-stop. I taught myself CODESYS and ladder logic for this project over about two weeks, starting with little PLC experience.</p>
+        </div>
       </div>
     </section>
 
     <section class="project-section" id="how-it-works">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">How It Works</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: how it works]</p></div>
-        <div class="table-wrap" role="region" aria-label="Four-step sequence" tabindex="0">
-          <table class="table">
-            <caption>[PLACEHOLDER: four-step sequence caption]</caption>
+        <div class="prose">
+          <p>The sequence is a state machine with one bit per step, which means only one step is active at a time. Each step waits for real feedback (a sensor or robot signal) before moving on, and each has a timeout that faults the machine if the step isn't completed in the expected time frame.</p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Four-step sequence table, scrolls sideways" tabindex="0">
+          <table class="table table--wide">
+            <caption>The four-step sequence. After step 40, the cycle returns to step 10.</caption>
             <thead>
               <tr>
                 <th scope="col">Step</th>
-                <th scope="col">[PLACEHOLDER: column heading]</th>
-                <th scope="col">[PLACEHOLDER: column heading]</th>
+                <th scope="col">What the machine does</th>
+                <th scope="col">Outputs on</th>
+                <th scope="col">Moves when</th>
+                <th scope="col">Timeout fault</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>[PLACEHOLDER: step 1 detail]</td>
-                <td>[PLACEHOLDER: step 1 detail]</td>
+                <th scope="row">10 Feed</th>
+                <td>Conveyor brings part to stop</td>
+                <td>Conveyor</td>
+                <td>Sensor sees part</td>
+                <td>none</td>
               </tr>
               <tr>
-                <th scope="row">2</th>
-                <td>[PLACEHOLDER: step 2 detail]</td>
-                <td>[PLACEHOLDER: step 2 detail]</td>
+                <th scope="row">20 Clamp</th>
+                <td>Clamp cylinder closes on part</td>
+                <td>Clamp</td>
+                <td>Clamp sensor confirms closed</td>
+                <td>2&nbsp;s</td>
               </tr>
               <tr>
-                <th scope="row">3</th>
-                <td>[PLACEHOLDER: step 3 detail]</td>
-                <td>[PLACEHOLDER: step 3 detail]</td>
+                <th scope="row">30 Pick</th>
+                <td>Robot arm picks up part</td>
+                <td>Clamp, Robot Go</td>
+                <td>Robot reports done</td>
+                <td>10&nbsp;s</td>
               </tr>
               <tr>
-                <th scope="row">4</th>
-                <td>[PLACEHOLDER: step 4 detail]</td>
-                <td>[PLACEHOLDER: step 4 detail]</td>
+                <th scope="row">40 Release</th>
+                <td>Clamp opens, robot moves part</td>
+                <td>none</td>
+                <td>Clamp open AND Robot off AND Part gone</td>
+                <td>2&nbsp;s</td>
               </tr>
             </tbody>
           </table>
@@ -112,33 +152,84 @@
     <section class="project-section" id="design-decisions">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">Design Decisions</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: design decisions]</p></div>
+        <ul class="feature-list">
+          <li>
+            <h3>Seal-in run circuit</h3>
+            <p>I put a start contact in parallel with a run bit contact so the machine keeps running after the start button is released, until stop, a fault, or E-stop breaks the circuit.</p>
+          </li>
+          <li>
+            <h3>Moore machine</h3>
+            <p>Every transition rung sets the next step and resets the current one. This keeps the machine in only one step at a time and makes debugging easier. All outputs depend only on the current step.</p>
+          </li>
+          <li>
+            <h3>Full robot handshake</h3>
+            <p>The PLC turns on Go, the robot turns on Done, the PLC drops Go, and the robot drops Done. The PLC waits for the whole exchange so the two can't get out of sync.</p>
+          </li>
+          <li>
+            <h3>Latched faults with a timeout per step</h3>
+            <p>Each step has its own TON timer. A timeout latches a specific fault bit, stops the machine through the run circuit, and shows a message telling the operator what to check. Reset is required to clear it.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="project-section" id="what-i-learned">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">What I Learned</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: what I learned]</p></div>
+        <ul class="feature-list">
+          <li>
+            <h3>A state machine makes sequencing and debugging easier</h3>
+            <p>With one bit per step and only one step active at a time, I could always see where the machine was. When it stopped, I checked which step was on and which input it was waiting for.</p>
+          </li>
+          <li>
+            <h3>Every step needs feedback plus a timeout</h3>
+            <p>A step should only move on when a sensor or the robot confirms the action happened, not because time has passed. If that confirmation never comes, a timeout has to catch it, or the machine just waits with no explanation.</p>
+          </li>
+          <li>
+            <h3>An HMI is for the operator, not for me</h3>
+            <p>While programming, I was watching internal bits. An operator needs to see what state the machine is in and what to check when it stops, which is why each fault shows its own plain message, like &ldquo;Clamp did not close &ndash; check air pressure and sensor.&rdquo;</p>
+          </li>
+          <li>
+            <h3>Picking up a new IDE and language fast</h3>
+            <p>I started with little PLC experience and taught myself CODESYS and ladder logic in about two weeks, going from the basics to a working sequence with an HMI, fault handling and an E-stop.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="project-section" id="media">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">Media</h2></div>
-        <div class="gallery">
-          <div class="media-placeholder">Demo video coming soon</div>
+        <div class="gallery gallery--natural">
           <figure class="gallery__item">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23141414'/%3E%3Ctext x='400' y='235' fill='%23a3a3a3' font-family='sans-serif' font-size='32' text-anchor='middle'%3E[PLACEHOLDER: image]%3C/text%3E%3C/svg%3E" alt="[PLACEHOLDER: image alt text]" width="800" height="450" loading="lazy" data-lightbox>
-            <figcaption>[PLACEHOLDER: caption]</figcaption>
+            <div class="frame-light">
+              <img src="../assets/plc/hmi-running.png" alt="Operator HMI while running: the 10 Feed step light and the Conveyor output light are green, and the parts counter reads 12." width="2048" height="1247" loading="lazy" data-lightbox>
+            </div>
+            <figcaption>Operator HMI mid-cycle: step 10 (Feed) is active, the conveyor output is on, and 12 good parts have been counted. The simulator buttons along the bottom stand in for real sensors.</figcaption>
           </figure>
           <figure class="gallery__item">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23141414'/%3E%3Ctext x='400' y='235' fill='%23a3a3a3' font-family='sans-serif' font-size='32' text-anchor='middle'%3E[PLACEHOLDER: image]%3C/text%3E%3C/svg%3E" alt="[PLACEHOLDER: image alt text]" width="800" height="450" loading="lazy" data-lightbox>
-            <figcaption>[PLACEHOLDER: caption]</figcaption>
+            <div class="frame-light">
+              <img src="../assets/plc/state-diagram.jpg" alt="Hand-drawn state diagram on graph paper showing Stopped, steps 10 to 40, and a Faulted state." width="1197" height="1022" loading="lazy" data-lightbox>
+            </div>
+            <figcaption>Hand-drawn state diagram: the cycle runs 10 &rarr; 20 &rarr; 30 &rarr; 40 and back to 10. A timeout in steps 20, 30 or 40 moves the machine to Faulted, and Reset, Stop or E-stop returns it to Stopped.</figcaption>
           </figure>
-          <figure class="gallery__item">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23141414'/%3E%3Ctext x='400' y='235' fill='%23a3a3a3' font-family='sans-serif' font-size='32' text-anchor='middle'%3E[PLACEHOLDER: image]%3C/text%3E%3C/svg%3E" alt="[PLACEHOLDER: image alt text]" width="800" height="450" loading="lazy" data-lightbox>
-            <figcaption>[PLACEHOLDER: caption]</figcaption>
+          <figure class="gallery__item gallery__item--wide">
+            <div class="frame-light">
+              <img src="../assets/plc/rung-seal-in.png" alt="Ladder rung: xStartPB in parallel with xRunning, in series with normally closed xStopPB, xEStopOK and normally closed xFault, driving the xRunning coil." width="1846" height="276" loading="lazy" data-lightbox>
+            </div>
+            <figcaption>Rung 1, the seal-in run circuit: the xRunning contact in parallel with Start keeps the machine running after Start is released, until Stop is pressed, the E-stop OK signal drops, or a fault latches.</figcaption>
+          </figure>
+          <figure class="gallery__item gallery__item--wide">
+            <div class="frame-light">
+              <img src="../assets/plc/rung-transition.png" alt="Ladder rung: xStep10 and GVL.xPartPresent in series, driving a reset coil on xStep10 and a set coil on xStep20." width="1852" height="226" loading="lazy" data-lightbox>
+            </div>
+            <figcaption>Transition rung from step 10 to step 20: once step 10 is active and the part-present sensor turns on, the rung resets step 10 and sets step 20.</figcaption>
+          </figure>
+          <figure class="gallery__item gallery__item--wide">
+            <div class="frame-light">
+              <img src="../assets/plc/rung-fault-timer.png" alt="Ladder rung: xStep40 enables a TON timer named tonClampRetract with a 2-second preset, whose output sets xFaultClampRetract." width="1864" height="190" loading="lazy" data-lightbox>
+            </div>
+            <figcaption>Fault timer rung for step 40: a 2-second TON timer runs while the step is active, and if the step hasn't finished in time it latches the clamp-retract fault.</figcaption>
           </figure>
         </div>
       </div>
@@ -148,10 +239,10 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <p>&copy; 2026 Jackson Adams</p>
-      <a href="#PLACEHOLDER-email">[PLACEHOLDER: email]</a>
+      <a href="mailto:adamsjg3@miamioh.edu">adamsjg3@miamioh.edu</a>
       <div class="site-footer__social">
-        <a href="#PLACEHOLDER-github-url" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg></a>
-        <a href="#PLACEHOLDER-linkedin-url" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+        <a href="https://github.com/jgadams15" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/jackson-adams-miami/" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
       </div>
     </div>
   </footer>

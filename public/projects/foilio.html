@@ -3,10 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Foilio | JADAMS Builds</title>
-  <meta name="description" content="Foilio, a project from the portfolio of Jackson Adams.">
-  <meta name="theme-color" content="#0a0a0a">
+  <title>Foilio: AI Trading Card Scanner | Jackson Adams</title>
+  <meta name="description" content="Foilio is an Expo app for searching, pricing and tracking a Pokémon card collection, with a DINOv2 image-recognition scanner in development. By Jackson Adams.">
+  <meta name="theme-color" content="#2a221d">
+  <link rel="canonical" href="https://jadams-portfolio.web.app/projects/foilio">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Jackson Adams">
+  <meta property="og:title" content="Foilio: AI Trading Card Scanner | Jackson Adams">
+  <meta property="og:description" content="An Expo app for searching, pricing and tracking a Pokémon card collection, with a DINOv2 image-recognition scanner in development.">
+  <meta property="og:url" content="https://jadams-portfolio.web.app/projects/foilio">
+  <meta property="og:image" content="https://jadams-portfolio.web.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Jackson Adams, Computer Engineering Student at Miami University">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -26,7 +39,7 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="wordmark" href="../index.html">JADAMS <span class="wordmark__accent">Builds</span></a>
+      <a class="wordmark" href="../index.html" aria-label="Jackson Adams, home">JA</a>
       <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <svg class="icon menu-toggle__open" aria-hidden="true"><use href="#icon-menu"/></svg>
         <svg class="icon menu-toggle__close" aria-hidden="true"><use href="#icon-close"/></svg>
@@ -43,70 +56,179 @@
 
   <main id="main">
     <div class="container project-intro">
-      <a class="back-link" href="../index.html#projects"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>Back to projects</a>
-      <h1 class="project-intro__title">Foilio</h1>
-      <p class="project-intro__summary">[PLACEHOLDER: project summary]</p>
-      <div class="tag-list">
-        <span class="tag">[PLACEHOLDER: tag]</span>
-        <span class="tag">[PLACEHOLDER: tag]</span>
-        <span class="tag">[PLACEHOLDER: tag]</span>
+      <a class="back-link" href="../index.html#projects"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>All projects</a>
+      <div class="project-intro__heading">
+        <h1 class="project-intro__title">Foilio</h1>
+        <span class="tag tag--status">In development</span>
       </div>
+      <p class="project-intro__summary">An AI trading card scanner and portfolio app: scan, price, and track a Pok&eacute;mon card collection like a stock portfolio.</p>
+      <p class="project-intro__meta">Expo app for iOS, Android and web, plus a Python image-recognition pipeline</p>
+      <ul class="tag-list" aria-label="Technologies">
+        <li class="tag">TypeScript</li>
+        <li class="tag">Expo</li>
+        <li class="tag">React Native</li>
+        <li class="tag">Python</li>
+        <li class="tag">PyTorch</li>
+        <li class="tag">DINOv2</li>
+        <li class="tag">TCGdex API</li>
+      </ul>
       <div class="button-row">
-        <a class="btn" href="#PLACEHOLDER-project-repo-url"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>GitHub</a>
-        <a class="btn" href="#PLACEHOLDER-project-link-url"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>[PLACEHOLDER: link label]</a>
+        <a class="btn" href="https://github.com/jgadams15/Foilio"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>View on GitHub</a>
       </div>
     </div>
 
     <div class="container">
-      <div class="media-placeholder">Demo video coming soon</div>
+      <figure class="figure">
+        <div class="phone-row">
+          <img src="../assets/foilio/portfolio.png" alt="Portfolio screen showing total value, gain/loss, and holdings" width="390" height="670">
+          <img src="../assets/foilio/search.png" alt="Search results for Charizard sorted by highest price" width="390" height="670">
+          <img src="../assets/foilio/card-detail.png" alt="Base Set Charizard detail with finish picker and price" width="390" height="670">
+          <img src="../assets/foilio/scanner.png" alt="Scan screen with upload-a-photo option on web" width="390" height="670">
+        </div>
+        <figcaption>Portfolio, search, card detail and scan screens, captured from the web build at phone width. On a phone, the Scan tab opens the live camera with a card-outline guide.</figcaption>
+      </figure>
+      <!--
+        DEMO VIDEO (optional, add later)
+        1. Save a screen recording of the app (portrait, e.g. from Expo Go) as public/assets/foilio/demo.mp4
+           and one frame of it as public/assets/foilio/demo-poster.png.
+        2. Paste this figure right here, below the screenshot row:
+        <figure class="figure figure--portrait">
+          <video src="../assets/foilio/demo.mp4" poster="../assets/foilio/demo-poster.png" width="390" height="844" controls muted playsinline preload="none"></video>
+          <figcaption>Searching for a card, opening its prices and adding it to the portfolio.</figcaption>
+        </figure>
+      -->
     </div>
 
     <section class="project-section" id="overview">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">Overview</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: overview]</p></div>
+        <div class="prose">
+          <p>Foilio is an app for pricing and tracking a Pok&eacute;mon card collection like a stock portfolio. It's an Expo (React Native) app for iOS, Android and web from one TypeScript codebase, plus a Python image-recognition pipeline for identifying a card from a photo.</p>
+          <p>Working today: card search across the full TCGdex catalog with a set filter and sorting by newest set or highest price; a card detail page with prices for each finish (Normal, Holo, Reverse Holo, 1st Edition); and a portfolio that tracks value and gain/loss for each holding, saved on the device so no account is needed.</p>
+          <p><strong>Status:</strong> the AI image recognition doesn't fully work in the app yet. The Python prototype identifies a card from a photo, and I'm moving it onto a free Hugging Face Space and connecting it to the Scan tab.</p>
+          <p>I built Foilio with Claude Code as an AI-assisted workflow, while I owned the architecture, code review, debugging, and testing.</p>
+        </div>
       </div>
     </section>
 
     <section class="project-section" id="how-it-works">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">How It Works</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: how it works]</p></div>
+        <div class="prose">
+          <p>Screens never call an API directly. They go through a <code>CardDataProvider</code> and a <code>PortfolioStore</code> from a shared package, so the data source or storage can be swapped without touching UI code.</p>
+          <p>The scanner is an embedding search, not a trained classifier. A pretrained DINOv2 model turns each card image into a 384-number fingerprint, and recognizing a photo is a nearest-neighbor lookup over about 22k cards that takes milliseconds.</p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Tech stack table, scrolls sideways" tabindex="0">
+          <table class="table">
+            <caption>Tech stack</caption>
+            <thead>
+              <tr>
+                <th scope="col">Area</th>
+                <th scope="col">What it uses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">App</th>
+                <td>Expo with Expo Router in TypeScript: one codebase for iOS, Android and web, run on iPhone through Expo Go</td>
+              </tr>
+              <tr>
+                <th scope="row">Shared code</th>
+                <td><code>packages/shared</code>: TypeScript types and the API client, including the <code>CardDataProvider</code> adapter</td>
+              </tr>
+              <tr>
+                <th scope="row">Card data</th>
+                <td>TCGdex API (free, no key)</td>
+              </tr>
+              <tr>
+                <th scope="row">Scanner AI</th>
+                <td>DINOv2 embeddings and a nearest-neighbor index built from TCGdex images, in Python (<code>ml/</code>), being moved to a free Hugging Face Space</td>
+              </tr>
+              <tr>
+                <th scope="row">Backend (planned)</th>
+                <td>Supabase: Postgres, edge functions and a daily price-snapshot job. Not set up yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
     <section class="project-section" id="design-decisions">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">Design Decisions</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: design decisions]</p></div>
+        <ul class="feature-list">
+          <li>
+            <h3>Provider adapter pattern</h3>
+            <p>All card data goes through one <code>CardDataProvider</code> interface, currently backed by TCGdex. Switching sources means writing one new class and changing one line.</p>
+          </li>
+          <li>
+            <h3>Prices per finish</h3>
+            <p>A reverse holo can be worth many times its normal print, so every price carries its finish. When the provider data is ambiguous, like Cardmarket euro prices that don't say which finish they're for, Foilio skips the price instead of guessing.</p>
+          </li>
+          <li>
+            <h3>Embedding-based scanner, no training</h3>
+            <p>Recognition compares a photo's DINOv2 embedding against an index of every card image. New sets only need re-indexing, not retraining.</p>
+          </li>
+          <li>
+            <h3>DINOv2 rather than CLIP</h3>
+            <p>CLIP groups images by meaning, so every Pikachu looks alike to it. DINOv2 focuses on visual detail like artwork and layout, which is what tells two printings apart.</p>
+          </li>
+          <li>
+            <h3>Free services only</h3>
+            <p>No paid APIs or plans. Because eBay's free API only shows active listings, graded prices will always be labeled as asking prices, never sold values.</p>
+          </li>
+          <li>
+            <h3>Local-first portfolio</h3>
+            <p>The portfolio works with no account today. Entries use UUIDs, so a Supabase-backed store can replace local storage by changing one line.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="project-section" id="what-i-learned">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">What I Learned</h2></div>
-        <div class="prose"><p>[PLACEHOLDER: what I learned]</p></div>
+        <div class="prose"><p>[PLACEHOLDER: what you learned building Foilio, 2 to 4 points]</p></div>
+      </div>
+    </section>
+
+    <section class="project-section" id="roadmap">
+      <div class="container reveal">
+        <div class="section-heading"><h2 class="section-heading__title">Roadmap</h2></div>
+        <!-- Source to draw from: the Roadmap section of the Foilio README and docs/roadmap.md. -->
+        <div class="prose"><p>[PLACEHOLDER: roadmap]</p></div>
       </div>
     </section>
 
     <section class="project-section" id="media">
       <div class="container reveal">
         <div class="section-heading"><h2 class="section-heading__title">Media</h2></div>
-        <div class="gallery">
-          <div class="media-placeholder">Demo video coming soon</div>
+        <!-- Add more screenshots here as they're made: copy a figure below and point it at a new file in public/assets/foilio/. -->
+        <div class="gallery gallery--natural gallery--phones">
           <figure class="gallery__item">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23141414'/%3E%3Ctext x='400' y='235' fill='%23a3a3a3' font-family='sans-serif' font-size='32' text-anchor='middle'%3E[PLACEHOLDER: image]%3C/text%3E%3C/svg%3E" alt="[PLACEHOLDER: image alt text]" width="800" height="450" loading="lazy" data-lightbox>
-            <figcaption>[PLACEHOLDER: caption]</figcaption>
+            <img src="../assets/foilio/portfolio.png" alt="Portfolio screen showing total value, gain/loss, and holdings" width="390" height="670" loading="lazy" data-lightbox>
+            <figcaption>Portfolio: total value and gain/loss for each holding.</figcaption>
           </figure>
           <figure class="gallery__item">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23141414'/%3E%3Ctext x='400' y='235' fill='%23a3a3a3' font-family='sans-serif' font-size='32' text-anchor='middle'%3E[PLACEHOLDER: image]%3C/text%3E%3C/svg%3E" alt="[PLACEHOLDER: image alt text]" width="800" height="450" loading="lazy" data-lightbox>
-            <figcaption>[PLACEHOLDER: caption]</figcaption>
+            <img src="../assets/foilio/search.png" alt="Search results for Charizard sorted by highest price" width="390" height="670" loading="lazy" data-lightbox>
+            <figcaption>Search: results for Charizard, sorted by highest price.</figcaption>
           </figure>
           <figure class="gallery__item">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23141414'/%3E%3Ctext x='400' y='235' fill='%23a3a3a3' font-family='sans-serif' font-size='32' text-anchor='middle'%3E[PLACEHOLDER: image]%3C/text%3E%3C/svg%3E" alt="[PLACEHOLDER: image alt text]" width="800" height="450" loading="lazy" data-lightbox>
-            <figcaption>[PLACEHOLDER: caption]</figcaption>
+            <img src="../assets/foilio/card-detail.png" alt="Base Set Charizard detail with finish picker and price" width="390" height="670" loading="lazy" data-lightbox>
+            <figcaption>Card detail: Base Set Charizard with a finish picker and price.</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <img src="../assets/foilio/scanner.png" alt="Scan screen with upload-a-photo option on web" width="390" height="670" loading="lazy" data-lightbox>
+            <figcaption>Scan: upload a photo on web, or use the live camera on a phone.</figcaption>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <section class="project-section" aria-label="Disclaimer">
+      <div class="container">
+        <p class="note">Foilio is an unofficial fan project. It is not affiliated with, endorsed by, or sponsored by Nintendo, The Pok&eacute;mon Company, Creatures, or Game Freak. Pok&eacute;mon and all related names and images are trademarks of their respective owners. Card data and images come from <a class="text-link" href="https://tcgdex.dev">TCGdex</a>.</p>
       </div>
     </section>
   </main>
@@ -114,10 +236,10 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <p>&copy; 2026 Jackson Adams</p>
-      <a href="#PLACEHOLDER-email">[PLACEHOLDER: email]</a>
+      <a href="mailto:adamsjg3@miamioh.edu">adamsjg3@miamioh.edu</a>
       <div class="site-footer__social">
-        <a href="#PLACEHOLDER-github-url" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg></a>
-        <a href="#PLACEHOLDER-linkedin-url" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+        <a href="https://github.com/jgadams15" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/jackson-adams-miami/" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
       </div>
     </div>
   </footer>
