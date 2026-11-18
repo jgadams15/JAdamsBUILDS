@@ -33,28 +33,28 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 
 | Area | Decision |
 |---|---|
-| **Color** | bg `#0a0a0a`, surface `#141414`, border `#262626`, text `#fff`, muted `#a3a3a3`, accent (Miami red) `#c3142d`, accent-light `#e34459` |
+| **Color** | Espresso theme (adopted 2026-11-18, replacing black and Miami red). bg espresso `#2a221d`, surface `#352c26`, border `#4a3f37`, text cream `#f0e6da`, muted taupe `#b3a496`, accent and accent-light both amber `#e6b06a`. Jackson chose the four base colors (`#2A221D`, `#F0E6DA`, `#B3A496`, `#E6B06A`); surface and border are derived steps of the espresso |
 | **Type** | Inter (Google Fonts), body 400, headings 700–800. Hero name `clamp(3rem, 1.45rem + 6.62vw, 6rem)` (48px at 375, 96px at 1100+) |
 | **Spacing** | `--space-1`…`--space-8` (4px to 96px), max width 1100px, section padding `clamp(4rem, 3rem + 5vw, 7rem)` |
 | **Shape** | card radius 12px, button radius 8px, pill radius 999px |
 | **Motion** | one timing, `--transition: 250ms ease`. The `prefers-reduced-motion` block turns off all animation and transitions |
 
 **Contrast:**
-- **Accent-light:** the brief suggested `#e0384f`, but it was 4.25:1 on surface cards, so it became `#e34459` (4.94:1 on bg, 4.59:1 on surface). Use it for small red text.
-- **True accent:** `#c3142d` is 3.26:1 on bg, which only passes for large text. Use it only for large or bold text (the 20px wordmark, the hero period), borders and glows.
+- **Text:** cream is 12.67:1 on bg and 11.07:1 on surface. Taupe is 6.44:1 on bg and 5.63:1 on surface.
+- **Accent:** amber is 8.02:1 on bg and 7.00:1 on surface, so it's safe for small text too. `--color-accent-light` is kept as a separate token (same value) so small accent text can be retuned on its own later.
 
 **Components (styled once, reused):**
-- **Header:** sticky, with the wordmark ("JADAMS" white, "Builds" red) and nav About · Projects · Skills. On project pages the nav points to `../index.html#...`. Below 720px it collapses to a menu button, but only when JS is running.
+- **Header:** sticky, with a minimal "JA" monogram (cream, 22px, weight 800; `aria-label="Jackson Adams, home"`) and nav About · Projects · Skills. On project pages the nav points to `../index.html#...`. Below 720px it collapses to a menu button, but only when JS is running.
 - **Footer:** © 2026 Jackson Adams, email, GitHub and LinkedIn icons.
-- **Buttons and tags:** a dark button with an icon slot (`.btn`), and an outlined tag pill (`.tag`) with a red border on hover. Keep the pills outlined; the reference's filled tags weren't adopted.
-- **Project card:** `.card`. The whole card is a link that lifts with a red glow on hover.
+- **Buttons and tags:** a dark button with an icon slot (`.btn`), and an outlined tag pill (`.tag`) with an amber border on hover. Keep the pills outlined; the reference's filled tags weren't adopted.
+- **Project card:** `.card`. The whole card is a link that lifts with an amber glow on hover.
 - **Section heading:** `.section-heading` with an optional subtitle.
-- **Dotted grid:** `.dots`, an absolutely positioned decoration made with a radial-gradient. `.dots--pulse` makes a few dots pulse red slowly.
+- **Dotted grid:** `.dots`, an absolutely positioned decoration made with a radial-gradient. `.dots--pulse` makes a few dots pulse amber slowly.
 - **Media:** `.media-placeholder` (a 16:9 dashed box reading "Demo video coming soon"), `.gallery`, and `.table-wrap` + `.table` (scrolls sideways on mobile).
 - **Icons:** an inline SVG `<symbol>` sprite at the top of each page, used via `<use href="#icon-...">`. The sprite is inline because external sprites fail over `file://`.
 - **Added in the content pass:**
-  - **Badge:** `.tag--status`, the "In development" badge, built as a red-outlined variant of `.tag`.
-  - **Text accents:** `.period` (the red period after the name and section headings), `.highlight` (red key phrases), `.text-link` and `.inline-links`.
+  - **Badge:** `.tag--status`, the "In development" badge, built as an amber-outlined variant of `.tag`.
+  - **Text accents:** `.period` (the amber period after the name and section headings), `.highlight` (amber key phrases), `.text-link` and `.inline-links`.
   - **Media:**
     - `.figure` is the large media spot.
     - `.frame-light` is the white card behind the white-background PLC screenshots.
@@ -65,7 +65,8 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
     - `.table--wide` sets a min-width so the PLC table scrolls instead of squishing.
   - **Content blocks:** `.feature-list` (titled points) and `.note` (the disclaimer).
   - **Video:** the demo-video spots are HTML comments on each project page with a ready `<video>` snippet. Nothing visible renders until a file is added.
-- **Open Graph:** `assets/og-image.png` (1200×630) was rendered from HTML with headless Chrome and is used by all three pages. It needs regenerating if the name or subtitle changes.
+- **Open Graph:** `assets/og-image.png` (1200×630) was rendered from HTML with headless Chrome and is used by all three pages. It shows the hero ("Hi, I'm", name, subtitle) with "JA" top right, in the espresso theme. It needs regenerating if the name, subtitle or colors change.
+- **Favicon:** `assets/favicon.svg`, a "JA" monogram drawn as strokes (no font) in amber on espresso. `theme-color` is `#2a221d` and `og:site_name` is "Jackson Adams".
 
 **JS (`main.js`):**
 - **Load order:** the script loads in `<head>` without `defer` and adds `.js` to `<html>` before first paint. The CSS hides `.reveal` content and collapses the menu only under `.js`, so with JS off, or if the file fails to load, everything stays visible.
@@ -78,7 +79,7 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 - **No phone number anywhere** on the site or in deployed files.
 - **Resume:** use Jackson's web copy `public/assets/JAdamsResumeNoNumber.pdf` (no phone number). Rename it to `assets/resume.pdf`, which the Resume button already links to.
 - **Headshot:** the source is `reference/JacksonAdams2025-1.jpg` (portrait, 1996×2909, 1.1 MB). It was cropped square around the face into `assets/headshot.jpg` (800×800, 70 KB).
-- **Hero:** the small red intro line above the name is "Hi, I'm". The subtitle is "Computer Engineering Student @ Miami University".
+- **Hero:** the small amber intro line above the name is "Hi, I'm". The subtitle is "Computer Engineering Student @ Miami University".
 - **About:** the first sentence is Jackson's, verbatim: "Computer Engineering Student with a passion for entrepreneurship, app development, and hardware." Jackson approved this continuation, which includes the 4.0 GPA:
   > I'm studying computer engineering at Miami University with a minor in Deep Learning and AI, where I hold a 4.0 GPA and was named to the President's List. I like building things that span software and hardware, from Foilio, an app for pricing and tracking a trading card collection, to a simulated pick-and-place cell I programmed in ladder logic. I'm also an undergraduate teaching assistant for Fundamentals of Programming, helping 30 students learn to debug Python.
 - **Skills:** Jackson approved these pills. TypeScript and React Native come from Foilio, not the resume.

@@ -5,16 +5,16 @@
   color-scheme: dark;
 
   /* Color */
-  --color-bg: #0a0a0a;
-  --color-surface: #141414;
-  --color-border: #262626;
-  --color-text: #ffffff;
-  --color-muted: #a3a3a3;
-  --color-accent: #c3142d;        /* Miami red: large text, borders, glows */
-  --color-accent-light: #e34459;  /* Small red text: 4.94:1 on bg, 4.59:1 on surface */
-  --color-accent-glow: rgb(195 20 45 / 0.35);
-  --color-dot: rgb(255 255 255 / 0.18);
-  --color-overlay: rgb(0 0 0 / 0.92);
+  --color-bg: #2a221d;            /* espresso */
+  --color-surface: #352c26;       /* a step lighter: cards, buttons, table header */
+  --color-border: #4a3f37;        /* hairlines, button hover fill */
+  --color-text: #f0e6da;          /* cream: 12.67:1 on bg, 11.07:1 on surface */
+  --color-muted: #b3a496;         /* taupe: 6.44:1 on bg, 5.63:1 on surface */
+  --color-accent: #e6b06a;        /* amber: 8.02:1 on bg, 7.00:1 on surface */
+  --color-accent-light: #e6b06a;  /* same amber; kept as a token for small accent text */
+  --color-accent-glow: rgb(230 176 106 / 0.22);
+  --color-dot: rgb(240 230 218 / 0.16);
+  --color-overlay: rgb(20 16 13 / 0.94);
   --color-paper: #ffffff;         /* light card behind white-background screenshots */
 
   /* Type */
@@ -228,16 +228,12 @@ code {
   min-height: var(--header-height);
 }
 
-/* 20px bold counts as large text, so the true brand red is legible here. */
+/* Minimal "JA" monogram. */
 .wordmark {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: var(--weight-black);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
   white-space: nowrap;
-}
-
-.wordmark__accent {
-  color: var(--color-accent);
 }
 
 .site-nav__list {
@@ -259,7 +255,7 @@ code {
   color: var(--color-text);
 }
 
-/* Thin red underline that draws in from the left on hover. */
+/* Thin amber underline that draws in from the left on hover. */
 .site-nav__link::after {
   content: "";
   position: absolute;
@@ -430,7 +426,7 @@ code {
   color: var(--color-text);
 }
 
-/* Status badge: a tag variant with a red outline and a small dot. */
+/* Status badge: a tag variant with an amber outline and a small dot. */
 .tag--status {
   display: inline-flex;
   align-items: center;
@@ -535,7 +531,7 @@ code {
   mask-image: radial-gradient(closest-side, #000 var(--dot-fade-start), transparent);
 }
 
-/* The red layers tile at odd multiples of the gap, so they land on grid dots. */
+/* The amber layers tile at odd multiples of the gap, so they land on grid dots. */
 .dots--pulse::before,
 .dots--pulse::after {
   content: "";
