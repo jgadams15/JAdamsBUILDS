@@ -6,13 +6,13 @@ Personal portfolio site for Jackson Adams, a computer engineering student at Mia
 
 - **Follow Jackson's written instructions first.** The screenshots in `reference/` are a secondary check for when an instruction is unclear. Don't redesign toward them.
 - **Never invent content.** Unwritten text is marked `[PLACEHOLDER: ...]`, and unwritten links are `#PLACEHOLDER-...`. Search for `PLACEHOLDER` before calling a page done.
-- **Work in the stages Jackson asks for.** He reviews each one before the next: skeleton (done), then content. Don't fill in content, move ahead, or deploy until he asks.
+- **Work in the stages Jackson asks for.** He reviews each one before the next: skeleton (done), then content (built, in review). Don't fill in content, move ahead, or deploy until he asks.
 - **Source of truth for Foilio is the Foilio repo, not the resume** (see the Foilio section below).
 
 ## Tech constraints (fixed, don't change)
 
 - Plain HTML, CSS and vanilla JavaScript. No framework, no npm packages, no build step.
-- **Hosting:** Firebase Hosting later, which isn't set up yet. Everything deployed lives in `public/`. Firebase's default ignore list (`**/.*`) keeps the `.gitkeep` files out of a deploy.
+- **Hosting:** Firebase Hosting on the free Spark plan, project `jadams-portfolio`, live at https://jadams-portfolio.web.app (first deployed 2026-11-09). Everything deployed lives in `public/`. `firebase.json` sets `cleanUrls` (pages are served at `/projects/foilio`, with `.html` URLs 301-redirecting), ignores dotfiles, `node_modules` and `firebase.json`, and sets cache headers: images 7 days, CSS/JS 1 day, PDF 1 hour, HTML `no-cache`. File names aren't hashed, so keep those caches short. Canonical and `og:` URLs use the `jadams-portfolio.web.app` domain. Never enable anything that needs billing, and add demo videos as YouTube embeds, not uploads. Publish with `firebase deploy --only hosting` after committing.
 - **Shared code:** one stylesheet (`public/css/styles.css`) and one script (`public/js/main.js`).
 - **Public repo:** `github.com/jgadams15/JAdamsBUILDS` is public, so everything committed is public. `reference/` contents and the PLC write-up are gitignored.
 
@@ -52,6 +52,20 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 - **Dotted grid:** `.dots`, an absolutely positioned decoration made with a radial-gradient. `.dots--pulse` makes a few dots pulse red slowly.
 - **Media:** `.media-placeholder` (a 16:9 dashed box reading "Demo video coming soon"), `.gallery`, and `.table-wrap` + `.table` (scrolls sideways on mobile).
 - **Icons:** an inline SVG `<symbol>` sprite at the top of each page, used via `<use href="#icon-...">`. The sprite is inline because external sprites fail over `file://`.
+- **Added in the content pass:**
+  - **Badge:** `.tag--status`, the "In development" badge, built as a red-outlined variant of `.tag`.
+  - **Text accents:** `.period` (the red period after the name and section headings), `.highlight` (red key phrases), `.text-link` and `.inline-links`.
+  - **Media:**
+    - `.figure` is the large media spot.
+    - `.frame-light` is the white card behind the white-background PLC screenshots.
+    - `.phone-row` holds the Foilio screenshots.
+    - `.gallery--natural` shows images uncropped.
+    - `.gallery__item--wide` makes a ladder rung span the full row.
+    - `.gallery--phones` lays out the Foilio gallery.
+    - `.table--wide` sets a min-width so the PLC table scrolls instead of squishing.
+  - **Content blocks:** `.feature-list` (titled points) and `.note` (the disclaimer).
+  - **Video:** the demo-video spots are HTML comments on each project page with a ready `<video>` snippet. Nothing visible renders until a file is added.
+- **Open Graph:** `assets/og-image.png` (1200×630) was rendered from HTML with headless Chrome and is used by all three pages. It needs regenerating if the name or subtitle changes.
 
 **JS (`main.js`):**
 - **Load order:** the script loads in `<head>` without `defer` and adds `.js` to `<html>` before first paint. The CSS hides `.reveal` content and collapses the menu only under `.js`, so with JS off, or if the file fails to load, everything stays visible.
@@ -63,7 +77,7 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 - **Contacts:** email `adamsjg3@miamioh.edu`, GitHub `https://github.com/jgadams15`, LinkedIn `https://www.linkedin.com/in/jackson-adams-miami/`.
 - **No phone number anywhere** on the site or in deployed files.
 - **Resume:** use Jackson's web copy `public/assets/JAdamsResumeNoNumber.pdf` (no phone number). Rename it to `assets/resume.pdf`, which the Resume button already links to.
-- **Headshot:** the source is `public/assets/JacksonAdams2025-1.jpg` (portrait, 1996×2909, 1.1 MB). Crop it square around the face and compress it into `assets/headshot.jpg`, which the page already uses.
+- **Headshot:** the source is `reference/JacksonAdams2025-1.jpg` (portrait, 1996×2909, 1.1 MB). It was cropped square around the face into `assets/headshot.jpg` (800×800, 70 KB).
 - **Hero:** the small red intro line above the name is "Hi, I'm". The subtitle is "Computer Engineering Student @ Miami University".
 - **About:** the first sentence is Jackson's, verbatim: "Computer Engineering Student with a passion for entrepreneurship, app development, and hardware." Jackson approved this continuation, which includes the 4.0 GPA:
   > I'm studying computer engineering at Miami University with a minor in Deep Learning and AI, where I hold a 4.0 GPA and was named to the President's List. I like building things that span software and hardware, from Foilio, an app for pricing and tracking a trading card collection, to a simulated pick-and-place cell I programmed in ladder logic. I'm also an undergraduate teaching assistant for Fundamentals of Programming, helping 30 students learn to debug Python.
@@ -135,7 +149,11 @@ reference/                 # local only: inspo screenshots + PLC write-up PDF
 
 ## Still open
 
-Nothing as of 2026-11-09. Every content decision for the content pass is recorded above. Ask Jackson about anything new instead of guessing.
+As of 2026-11-09 the content pass is built and awaiting Jackson's review.
+- **Foilio placeholders:** two remain on purpose, "What I Learned" and "Roadmap". Jackson asked for the roadmap to be left for him to write.
+- **Headshot source:** the original photo was moved out of `public/` into `reference/` (local only), so the 1.1 MB file isn't deployed.
+
+Ask Jackson about anything new instead of guessing.
 
 ## Verification checklist (run after changes)
 
